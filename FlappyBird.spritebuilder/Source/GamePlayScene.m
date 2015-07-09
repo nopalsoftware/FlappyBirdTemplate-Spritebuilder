@@ -2,12 +2,19 @@
 #import "Character.h"
 #import "Obstacle.h"
 
-@implementation GamePlayScene
+@implementation GamePlayScene{
+
+    float timeToSinceObstacle;
+
+}
 
 - (void)initialize
 {
     CharacterP = (Character *) [CCBReader load:@"Character"];
     [physicsNode addChild:CharacterP];
+    
+    timeToSinceObstacle = 0.0f;
+    [self addObstacle];
     
 }
 
@@ -22,7 +29,13 @@
 
 -(void)update:(CCTime)delta
 {
-    // put update code here
+    timeToSinceObstacle += delta;
+    
+    if (timeToSinceObstacle > 2.0f) {
+        
+        [self addObstacle];
+        timeToSinceObstacle = 0.0f;
+    }
 }
 
 // put new methods here
