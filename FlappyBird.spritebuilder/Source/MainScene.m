@@ -24,6 +24,8 @@
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_nameLabel;
     
+
+    
     int points;
 }
 
@@ -53,7 +55,7 @@
 
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     if (!_gameOver) {
-        [character.physicsBody applyAngularImpulse:10000.f];
+        [Character.physicsBody applyAngularImpulse:10000.f];
         _sinceTouch = 0.f;
         
         @try
@@ -74,10 +76,10 @@
         _gameOver = TRUE;
         _restartButton.visible = TRUE;
         
-        character.physicsBody.velocity = ccp(0.0f, character.physicsBody.velocity.y);
-        character.rotation = 90.f;
-        character.physicsBody.allowsRotation = FALSE;
-        [character stopAllActions];
+        Character.physicsBody.velocity = ccp(0.0f, character.physicsBody.velocity.y);
+        Character.rotation = 90.f;
+        Character.physicsBody.allowsRotation = FALSE;
+        [Character stopAllActions];
         
         CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-2, 2)];
         CCActionInterval *reverseMovement = [moveBy reverse];
