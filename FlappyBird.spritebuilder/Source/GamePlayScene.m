@@ -6,8 +6,19 @@
 
 - (void)initialize
 {
-    // your code here
+    CharacterP = (Character *) [CCBReader load:@"Character"];
+    [physicsNode addChild:CharacterP];
+    
 }
+
+-(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    [CharacterP flap];
+}
+
+-(void) addObstacle{}
+-(void) showScore{}
+
 
 -(void)update:(CCTime)delta
 {
