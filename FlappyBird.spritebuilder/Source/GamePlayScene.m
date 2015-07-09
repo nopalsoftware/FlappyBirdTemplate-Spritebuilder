@@ -10,8 +10,8 @@
 
 - (void)initialize
 {
-    CharacterP = (Character *) [CCBReader load:@"Character"];
-    [physicsNode addChild:CharacterP];
+    character = (Character *) [CCBReader load:@"Character"];
+    [physicsNode addChild:character];
     
     timeToSinceObstacle = 0.0f;
     [self addObstacle];
@@ -20,7 +20,7 @@
 
 -(void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    [CharacterP flap];
+    [character flap];
 }
 
 -(void) addObstacle{}
